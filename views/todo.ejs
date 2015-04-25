@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Todo List</title>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	</head>
+
+	<body>
+		<div class="container">
+		
+			<div class="row">
+				<div class="col-sm-1">
+					<!-- <br><br><br><br><br><br>
+					<form method="" action="">
+					<input type="submit" class="btn btn-primary" id="removeButton" value="Remove an item">
+					</form>
+					<p></p>
+					<input type="submit" class="btn btn-primary" id="editButton" value="Edit an item">
+					<p></p> -->
+				</div>
+
+				<div class="col-sm-10">
+					<h1><%= greeting %></h1>
+					<input type="submit" class="btn btn-primary pull-right" id="addButton" value="Add more items">
+
+					<h3>In-Process</h3>
+					<table class="table">
+					  <tbody>
+					  	<tr>
+					  		<!-- <th><input type="checkbox" id="selectAll"></th> -->
+					  		<th>Priority</th>
+					  		<th>Title</th>
+					  		<th>Description</th>
+					  		<th class="sortByDueDate">Due Date</th>
+					  		<th></th>
+					  		<th></th>
+					  	</tr>
+					  	
+			      <% tasks.forEach(function(task){ %>
+			      	<% if (!task.complete) { %>
+						  	<tr class="todoItem" id="todo_<%= task._id %>">
+					  	    <!-- <td><input type="checkbox" id="<%= task._id %>"></td> -->
+					  	    <td> <span class="label label-primary"> <%= task.priority %> </span> </td>
+					  	    <td> <%= task.title %> </td>
+					  	    <td> <%= task.description %> </td>
+					  	    <td> <%= task.dueDate %> </td>
+					  	    <!-- <td> <%= task.complete %> </td> -->
+					  	    <td><button type="button" class="btn btn-default btn-xs btn-success edit-btn" id="<%= task._id %>">Edit</button></td>
+					  	    <td><button type="button" class="btn btn-default btn-xs btn-danger remove-btn" id="<%= task._id %>">Remove</button></td>
+						  	</tr>
+							<% } %>
+			      <% }) %>					
+					  </tbody>
+					</table>
+
+					<h3>Complete</h3>
+					<table class="table">
+					  <tbody>
+					  	<tr>
+					  		<!-- <th><input type="checkbox" id="selectAll"></th> -->
+					  		<th>Priority</th>
+					  		<th>Title</th>
+					  		<th>Description</th>
+					  		<th>Due Date</th>
+					  		<th></th>
+					  		<th></th>
+					  	</tr>
+					  	
+			      <% tasks.forEach(function(task){ %>
+			      	<% if (task.complete) { %>
+						  	<tr class="todoItem" id="todo_<%= task._id %>">
+					  	    <!-- <td><input type="checkbox" id="<%= task._id %>"></td> -->
+					  	    <td> <span class="label label-primary"> <%= task.priority %> </span> </td>
+					  	    <td> <%= task.title %> </td>
+					  	    <td> <%= task.description %> </td>
+					  	    <td> <%= task.dueDate %> </td>
+					  	    <!-- <td> <%= task.complete %> </td> -->
+					  	    <td>
+					  	    	<button type="button" class="btn btn-default btn-xs btn-success edit-btn" id="<%= task._id %>">Edit</button>
+					  	    </td>
+					  	    <td>
+					  	    	<button type="button" class="btn btn-default btn-xs btn-danger remove-btn" id="<%= task._id %>">Remove
+					  	    	</button>
+					  	    </td>
+						  	</tr>
+							<% } %>
+			      <% }) %>					
+
+					  </tbody>
+					</table>
+				</div>
+
+				<div class="col-sm-1"></div>
+			</div>
+		</div>	
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/javascripts/main.js"></script>
+	</body>
+
+</html>

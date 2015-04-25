@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-10">
+          <h1><%= title %></h1>
+            <form class="form-horizontal" id="todoForm" method="post" action="/todo">
+              <input type="hidden" name="_id" value="<%= item_props._id %>">                
+              <div class="form-group">
+                <label for="todoDueDate" class="col-sm-2 control-label">Due Date</label>
+                <div class="col-sm-10">
+                  <input type="date" class="form-control" id="todoDueDate" name="dueDate" value="<%=item_props.dueDate %>"required>
+                </div>
+              </div>              
+              <div class="form-group">
+                <label for="todoTitle" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="todoTitle" name="title" value="<%= item_props.title %>" minLength="2" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="todoDescription" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="todoDescription" name="description" value="<%= item_props.description %>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="todoPriority" class="col-sm-2 control-label">Priority</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="todoPriority" name="priority">
+                    <option <% if (item_props.priority === 1) { %>
+                      selected
+                      <% } %>
+                      >1</option>
+                    <option <% if (item_props.priority === 2) { %>
+                      selected
+                      <% } %>
+                      >2</option>
+                    <option <% if (item_props.priority === 3) { %>
+                      selected
+                      <% } %>
+                      >3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="todoCompleted" class="col-sm-2 control-label">Completed?</label>
+                <div class="col-sm-2">
+                  <input type="checkbox" class="form-control" id="todoCompleted" name="completed"  <% if (item_props.complete) { %> checked <% } %> >
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <input type="submit" class="btn btn-primary" id="saveButton" value="Save to List">
+                <p></p>
+              </div>
+
+          </form>
+          <br><br><br>
+<!--          
+          <form class="form-horizontal" id="viewForm" method="post" action="/todo">
+            <div class="form-group">
+              <input type="submit" class="btn btn-default btn-primary" id="viewButton" value="View your current list">
+              <label for="todoSortBy" class="col-sm-2 control-label">Sort By</label>
+                <div class="col-sm-4">
+                  <select class="form-control" id="todosortBy" name="sortBy">
+                    <option></option>
+                    <option>Priority</option>
+                    <option>Due Date</option>
+                  </select>
+                </div>
+            </div>
+          </form>
+-->
+          <a href="/todo"><button type="button" class="btn btn-default btn-primary">View your current list</button></a>
+          
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
+    <script type="text/javascript" src="/javascripts/validate.js"></script>
+    
+  </body>
+</html>
