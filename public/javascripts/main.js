@@ -1,9 +1,7 @@
 $(document).ready(function() {
 
-  // $('#selectAll').on('click', function() {
-  //   $('input:checkbox').prop("checked", this.checked);
-  // });
-
+  // handler for the PLUS or MINUS icon on each table row
+  // for expanding or contracting content
   $('.glyphicon-plus-sign').on('click', function() {
     var item_id = $(this)[0].id;
     $('#showOrHide_' + item_id).toggle();
