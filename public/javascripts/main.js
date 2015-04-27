@@ -1,20 +1,30 @@
 $(document).ready(function() {
 
-/* when a checkbox is used for the list, this function will allow a "select all"
-  $('#selectAll').on('click', function() {
-    $('input:checkbox').prop("checked", this.checked);
-  });
-*/
+  // $('#selectAll').on('click', function() {
+  //   $('input:checkbox').prop("checked", this.checked);
+  // });
 
+  $('.glyphicon-plus-sign').on('click', function() {
+    var item_id = $(this)[0].id;
+    $('#showOrHide_' + item_id).toggle();
+    if ($(this).hasClass("glyphicon-plus-sign")) {
+      $(this).removeClass("glyphicon-plus-sign").addClass("glyphicon-minus-sign");
+    } 
+    else {
+      $(this).removeClass("glyphicon-minus-sign").addClass("glyphicon-plus-sign");      
+    }
+  });
+
+  // handler for clicking the Remove button
   $('.remove-btn').on('click', function() {
     var item_id = $(this)[0].id;
-    $('#todo_' + item_id).remove();
+    $('#book_' + item_id).remove();
 
     $.ajax({
-      url: '/todo',
+      url: '/book',
       method: 'DELETE',
       data: {
-        todo_id: item_id
+        book_id: item_id
       },
       success: function(response) {
         console.log("returned from ajax DELETE");
@@ -23,56 +33,13 @@ $(document).ready(function() {
 
   });
 
-/*
-  $('#removeButton').on('click', function() {
-
-    // select every table row in which checkbox is checked
-    var checkbox_id = $('input:checked').attr('id');
-
-    // remove those parent table rows from the DOM
-    $('input:checked').parent().parent().remove(); 
-
-    //console.log(checkbox_id);
-
-    // remove item from the database by making AJAX call
-    $.ajax({
-      url: '/todo',
-      method: 'DELETE',
-      data: {
-        todo_id: checkbox_id
-      },
-      success: function(response) {
-        console.log("returned from ajax DELETE");
-      }
-    });
-
-  });
-
-*/
-
+  // handler for clicking the Edit button
   $('.edit-btn').on('click', function() {
     var item_id = $(this)[0].id;
-    window.location.href = '/todo/' + item_id;
+    window.location.href = '/book/' + item_id;
   });
 
-  // $('.sortByDueDate').on('click', function() {
-  //   $.ajax({
-  //     url: '/todo',
-  //     method: 'POST',
-  //     data: {
-  //       sortBy: 'dueDate'
-  //     },
-  //     success: function(response) { }
-  //   });
-  // });
-/*
-  $('#editButton').on('click', function() {
-    var checkbox_id = $('input:checked').attr('id');
-    window.location.href = '/todo/' + checkbox_id;
-  });
-
-*/
-
+  // handler for clicking the Add button
   $('#addButton').on('click', function() {
     window.location.href = '/';
     });
