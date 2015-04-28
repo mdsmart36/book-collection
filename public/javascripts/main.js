@@ -39,7 +39,7 @@ $(document).ready(function() {
 
   // handler for clicking the Add button
   $('#addButton').on('click', function() {
-    window.location.href = '/';
+    window.location.href = '/index';
     });
 
   });

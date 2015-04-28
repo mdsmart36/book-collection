@@ -3,9 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { 
-  	title: "Add a Book to Your Collection",
-  	item_props: {} });
+  res.render('login');
 });
 
 module.exports = router;

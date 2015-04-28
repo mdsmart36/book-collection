@@ -40,6 +40,7 @@ var getUserTasks = function (userId) {
 
 // Handle the request for the registration form
 app.get("/register", function (req, res) {
+  console.log("inside /user/register");
   res.render("register");
 });
 
