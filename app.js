@@ -8,6 +8,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var book = require('./routes/book');
 var edit = require('./routes/edit');
+var users = require('./routes/users');
+
 
 var app = express();
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h1>Register to create tasks</h1>
+
+    <form method="POST" action="/user/register" id="registerForm">
+      <div class="formfield">
+        <div class="formfield--prompt">Username:</div>
+        <input type="text" id="username" name="username">
+      </div>
+      <div class="formfield">
+        <div class="formfield--prompt">Password:</div>
+        <input type="password" id="password" name="password">
+      </div>
+      <input class="submitButton" type="submit"></input>
+    </form>
+
+  </body>
+</html>

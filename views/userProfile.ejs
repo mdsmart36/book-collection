@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= username %> profile</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <a href="/todo">Create a new task</a> | <a href="/todo/list">List tasks</a>
+
+    <div>
+      Username: <%= username %>
+    </div>
+    <div>
+      Number of tasks: <%= tasks.length %>
+    </div>
+  </body>
+</html>

@@ -15,7 +15,7 @@ db.once('open', function (callback) {
 var bookSchema = mongoose.Schema({
   title: {
     type: String,
-    required: true 
+    required: true
   },
   author: String,
   publisher: String,
@@ -25,7 +25,8 @@ var bookSchema = mongoose.Schema({
   review: String,
   pubYear: Number,
   category: String,
-  haveRead: Boolean
+  haveRead: Boolean,
+  user: String
 });
 
 var Book = mongoose.model('Book', bookSchema);
@@ -33,7 +34,7 @@ var Book = mongoose.model('Book', bookSchema);
 // find book by id in order to edit
 
 router.get('/:id', function (req, res) {
-  
+
   Book.find({ _id: req.params.id }, function (err, item) {
     console.log("looking for book in database");
     console.log(item[0]);
@@ -42,7 +43,7 @@ router.get('/:id', function (req, res) {
       console.log(err);
     }
     else {
-      res.render('index', { 
+      res.render('index', {
         title: "Edit a Book in Your Book Collection",
         item_props: editItem
       });
@@ -53,7 +54,7 @@ router.get('/:id', function (req, res) {
 
 // GET book listing page
 router.get('/', function(req, res, next) {
-  // return all matching documents sorted is ascending order by priority  
+  // return all matching documents sorted is ascending order by priority
   var sortKey = 'title';
 
   return Book.find().sort(sortKey).exec(function (err, books) {
@@ -93,7 +94,7 @@ router.delete('/', function(req, res) {
 router.post('/', function(req, res) {
 
   if (req.body._id) { // item already had an _id, so it needs to be updated
-    
+
     Book.findOne({ _id: req.body._id}, function(err, item) {
       if (err) {
         console.log(err);
@@ -109,7 +110,7 @@ router.post('/', function(req, res) {
         item.pubYear = req.body.pubYear;
         item.category = req.body.category;
         // CHECKBOX VALUES sent through a form ARE EITHER 'on' or 'undefined'
-        
+
         item.haveRead = (req.body.haveRead) ? true : false;
 
         item.save(function(err, updateItem) {
@@ -155,7 +156,7 @@ router.post('/', function(req, res) {
     });
 
   }
-  
+
 
 });
 
