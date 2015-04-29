@@ -1,6 +1,6 @@
-var Q = require("q");
 var express = require('express');
 var app = express.Router();
+var Q = require("q");
 var UserController = require("../userController");
 var UserModel = require("../models/user");
 var Book = require("./book");
@@ -17,22 +17,22 @@ var sendError = function (req, res, err, message) {
   });
 };
 
-// Retrieve all tasks for the current user
-var getUserTasks = function (userId) {
+// Retrieve all books for the current user
+var getUserBooks = function (userId) {
   var deferred = Q.defer();
 
   console.log('Another promise to let the calling function know when the database lookup is complete');
 
-  Book.find({user: userId}, function (err, tasks) {
+  Book.find({user: userId}, function (err, books) {
     if (!err) {
-      console.log('Tasks found = ' + tasks.length);
-      console.log('No errors when looking up tasks. Resolve the promise (even if none were found).');
-      deferred.resolve(tasks);
+      console.log('Books found = ' + books.length);
+      console.log('No errors when looking up books. Resolve the promise (even if none were found).');
+      deferred.resolve(books);
     } else {
-      console.log('There was an error looking up tasks. Reject the promise.');
+      console.log('There was an error looking up books. Reject the promise.');
       deferred.reject(err);
     }
-  })
+  });
 
   return deferred.promise;
 };
@@ -53,7 +53,8 @@ app.post("/register", function (req, res) {
     if (err) {
       sendError(req, res, err, "Failed to register user");
     } else {
-      res.redirect("/book");
+      // res.redirect("/book");
+      res.redirect("/login");
     }
   });
 });
@@ -73,13 +74,17 @@ app.post("/login", function (req, res) {
 
       console.log('Ok, now we are back in the route handling code and have found a user');
       console.log('validUser',validUser);
-      console.log('Find any tasks that are assigned to the user');
+      console.log('Find any books that are assigned to the user');
 
-      // Now find the tasks that belong to the user
-      getUserTasks(validUser._id)
-        .then(function (tasks) {
-          // Render the todo list
-          res.redirect("/todo/list");
+      // Now find the books that belong to the user
+      
+// ERROR SEEMS TO BE HERE --v--
+
+      getUserBooks(validUser._id)
+        .then(function (books) {
+          // Render the book list
+          // res.redirect("/todo/list");
+          res.redirect("book");
         })
         .fail(function (err) {
           sendError(req, res, {errors: err.message}, "Failed")
@@ -97,10 +102,10 @@ app.get("/profile", function (req, res) {
   var user = UserController.getCurrentUser();
 
   if (user !== null) {
-    getUserTasks(user._id).then(function (tasks) {
+    getUserTasks(user._id).then(function (books) {
       res.render("userProfile", {
         username: user.username,
-        tasks: tasks
+        books: books
       });
     });
   } else {

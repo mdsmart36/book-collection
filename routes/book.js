@@ -1,3 +1,4 @@
+var UserController = require('../userController');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
@@ -26,7 +27,10 @@ var bookSchema = mongoose.Schema({
   pubYear: Number,
   category: String,
   haveRead: Boolean,
-  user: String
+  user: {
+    type: String,
+    required: true
+  }
 });
 
 var Book = mongoose.model('Book', bookSchema);
@@ -58,6 +62,18 @@ router.get('/', function(req, res, next) {
   var sortKey = 'title';
 
   return Book.find().sort(sortKey).exec(function (err, books) {
+
+//***********
+
+    // swap out the user name for user id
+    var theUser = UserController.getCurrentUser();
+
+    books.forEach(function(book) {
+      book.user = theUser._id;
+    });
+
+//***************
+
     if(!err) {
       res.render('book', {
         greeting: "Your current Book Collection",
@@ -126,6 +142,8 @@ router.post('/', function(req, res) {
   else {
     // do initial save
     console.log(req.body);
+    var theUser = UserController.getCurrentUser();
+    console.log(theUser);
 
     new Book({
       title: req.body.title,
@@ -137,7 +155,8 @@ router.post('/', function(req, res) {
       review: req.body.review,
       pubYear: req.body.pubYear,
       category: req.body.category,
-      haveRead: (req.body.haveRead == 'on') ? true : false
+      haveRead: (req.body.haveRead == 'on') ? true : false,
+      user: theUser._id
     }).save(function (err, item) {
       if(err) {
         res.render("error", {
@@ -150,7 +169,7 @@ router.post('/', function(req, res) {
         console.log(err);
       } else {
         console.log("book saved");
-        console.log(req.body.review);
+        // console.log(req.body.review);
         res.redirect('book');
       }
     });
