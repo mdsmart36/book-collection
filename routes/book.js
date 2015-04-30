@@ -19,6 +19,11 @@ db.once('open', function (callback) {
 
 router.get('/:id', function (req, res) {
 
+    // Is the user logged in?
+  if (UserController.getCurrentUser() === null) {
+    res.redirect("/");
+  }
+
   Book.find({ _id: req.params.id }, function (err, item) {
     console.log("looking for book in database");
     console.log(item[0]);
@@ -38,6 +43,12 @@ router.get('/:id', function (req, res) {
 
 // GET book listing page
 router.get('/', function(req, res, next) {
+
+  // Is the user logged in?
+  if (UserController.getCurrentUser() === null) {
+    res.redirect("/");
+  }
+
   // return all matching documents sorted is ascending order by priority
   var sortKey = 'title';
 

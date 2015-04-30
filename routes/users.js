@@ -123,10 +123,10 @@ app.get("/profile", function (req, res) {
 
 });
 
-// app.get('/logout', function (req, res){
-//   userController.logout();
-//   res.redirect("/");
-// });
+app.get('/logout', function (req, res) {
+  UserController.logout();
+  res.redirect("/");
+});
 
 
 module.exports = app;
