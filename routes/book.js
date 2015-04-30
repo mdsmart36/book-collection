@@ -2,6 +2,7 @@ var UserController = require('../userController');
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var Book = require('../models/book');
 
 mongoose.connect('mongodb://localhost/bookCollection');
 
@@ -13,27 +14,6 @@ db.once('open', function (callback) {
   console.log("connected to book database");
 });
 
-var bookSchema = mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  author: String,
-  publisher: String,
-  isbn: String,
-  ddc: String, // Dewey Decimal category
-  rating: Number,
-  review: String,
-  pubYear: Number,
-  category: String,
-  haveRead: Boolean,
-  user: {
-    type: String,
-    required: true
-  }
-});
-
-var Book = mongoose.model('Book', bookSchema);
 
 // find book by id in order to edit
 
@@ -61,6 +41,7 @@ router.get('/', function(req, res, next) {
   // return all matching documents sorted is ascending order by priority
   var sortKey = 'title';
 
+// **********include user name in search*************
   return Book.find().sort(sortKey).exec(function (err, books) {
 
 //***********
@@ -116,6 +97,7 @@ router.post('/', function(req, res) {
         console.log(err);
       } else {
         // once it is found, update it
+        var theUser = UserController.getCurrentUser();
         item.title = req.body.title;
         item.author = req.body.author;
         item.publisher = req.body.publisher;
@@ -125,6 +107,7 @@ router.post('/', function(req, res) {
         item.review = req.body.review;
         item.pubYear = req.body.pubYear;
         item.category = req.body.category;
+        item.user = theUser._id;
         // CHECKBOX VALUES sent through a form ARE EITHER 'on' or 'undefined'
 
         item.haveRead = (req.body.haveRead) ? true : false;

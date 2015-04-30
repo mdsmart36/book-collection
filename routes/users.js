@@ -3,7 +3,7 @@ var app = express.Router();
 var Q = require("q");
 var UserController = require("../userController");
 var UserModel = require("../models/user");
-var Book = require("./book");
+var Book = require("../models/book");
 
 // Send the error message back to the client
 var sendError = function (req, res, err, message) {
@@ -22,8 +22,9 @@ var getUserBooks = function (userId) {
   var deferred = Q.defer();
 
   console.log('Another promise to let the calling function know when the database lookup is complete');
-
+  console.log(Book)
   Book.find({user: userId}, function (err, books) {
+    console.log(err,books);
     if (!err) {
       console.log('Books found = ' + books.length);
       console.log('No errors when looking up books. Resolve the promise (even if none were found).');
@@ -42,6 +43,14 @@ var getUserBooks = function (userId) {
 app.get("/register", function (req, res) {
   console.log("inside /user/register");
   res.render("register");
+});
+
+app.get("/book", function (req, res) {
+  console.log("inside /user/register");
+  res.render("index",{
+    title: "Add a Book to your collection",
+    item_props:{}
+  });
 });
 
 
@@ -77,7 +86,7 @@ app.post("/login", function (req, res) {
       console.log('Find any books that are assigned to the user');
 
       // Now find the books that belong to the user
-      
+
 // ERROR SEEMS TO BE HERE --v--
 
       getUserBooks(validUser._id)
@@ -113,5 +122,11 @@ app.get("/profile", function (req, res) {
   }
 
 });
+
+// app.get('/logout', function (req, res){
+//   userController.logout();
+//   res.redirect("/");
+// });
+
 
 module.exports = app;
