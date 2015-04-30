@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { 
   	title: "Add a Book to Your Collection",
+  	username: UserController.getCurrentUser().username,
   	item_props: {} });
 });
 

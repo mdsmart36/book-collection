@@ -49,6 +49,7 @@ app.get("/book", function (req, res) {
   console.log("inside /user/register");
   res.render("index",{
     title: "Add a Book to your collection",
+    username: UserController.getCurrentUser().username,
     item_props:{}
   });
 });

@@ -13,6 +13,7 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-8">
           <h3><%= title %></h3>
+          <span class="label label-success">User: <%= username %></span>
 
             <form class="form-horizontal" id="bookForm" method="post" action="/book">
               <input type="hidden" name="_id" value="<%= item_props._id %>">

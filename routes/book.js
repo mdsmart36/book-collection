@@ -34,6 +34,7 @@ router.get('/:id', function (req, res) {
     else {
       res.render('index', {
         title: "Edit a Book in Your Book Collection",
+        username: UserController.getCurrentUser().username,
         item_props: editItem
       });
     }
@@ -51,24 +52,21 @@ router.get('/', function(req, res, next) {
 
   // return all matching documents sorted is ascending order by priority
   var sortKey = 'title';
+  var theUser = UserController.getCurrentUser();
 
-// **********include user name in search*************
-  return Book.find().sort(sortKey).exec(function (err, books) {
-
-//***********
+  return Book.find({user: theUser._id}).sort(sortKey).exec(function (err, books) {
 
     // swap out the user name for user id
-    var theUser = UserController.getCurrentUser();
+    // var theUser = UserController.getCurrentUser();
 
-    books.forEach(function(book) {
-      book.user = theUser._id;
-    });
-
-//***************
+    // books.forEach(function(book) {
+    //   book.user = theUser._id;
+    // });
 
     if(!err) {
       res.render('book', {
         greeting: "Your current Book Collection",
+        username: UserController.getCurrentUser().username,
         books: books
       });
     } else {
