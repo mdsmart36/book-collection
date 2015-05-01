@@ -1,3 +1,7 @@
+//**************************************************************
+// THIS FILE APPEARS TO BE UNNECESSARY TO THE BOOKKEEPER PROJECT
+//**************************************************************
+
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');

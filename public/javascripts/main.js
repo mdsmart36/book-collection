@@ -37,10 +37,7 @@ $(document).ready(function() {
     window.location.href = '/book/' + item_id;
   });
 
-  // handler for clicking the Add button
-  // $('#addButton').on('click', function() {
-  //   window.location.href = '/index';
-  //   });
+  
 
   });
 
