@@ -4,6 +4,7 @@ var Q = require("q");
 var UserController = require("../userController");
 var UserModel = require("../models/user");
 var Book = require("../models/book");
+//var userNumberOfBooks;
 
 // Send the error message back to the client
 var sendError = function (req, res, err, message) {
@@ -27,6 +28,7 @@ var getUserBooks = function (userId) {
     console.log(err,books);
     if (!err) {
       console.log('Books found = ' + books.length);
+      //userNumberOfBooks = books.length;
       console.log('No errors when looking up books. Resolve the promise (even if none were found).');
       deferred.resolve(books);
     } else {
@@ -110,7 +112,7 @@ app.get("/profile", function (req, res) {
   var user = UserController.getCurrentUser();
 
   if (user !== null) {
-    getUserTasks(user._id).then(function (books) {
+    getUserBooks(user._id).then(function (books) {
       res.render("userProfile", {
         username: user.username,
         books: books

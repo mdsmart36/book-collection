@@ -4,7 +4,7 @@ $(document).ready(function() {
   // for expanding or contracting content
   $('.glyphicon-plus-sign').on('click', function() {
     var item_id = $(this)[0].id;
-    $('#showOrHide_' + item_id).toggle();
+    $('.showOrHide_' + item_id).toggle();
     if ($(this).hasClass("glyphicon-plus-sign")) {
       $(this).removeClass("glyphicon-plus-sign").addClass("glyphicon-minus-sign");
     } 

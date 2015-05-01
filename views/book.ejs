@@ -35,13 +35,16 @@
 						  	<tr class="bookItem" id="book_<%= book._id %>">
 						  		<!-- <td><input type="checkbox" id="<%= book._id %>"></td> -->
 						  		<td><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" id="<%= book._id %>"></span></td>
-					  	    <td> <em> <%= book.title %> </em> </td>
+					  	    <td> <em> <%= book.title %> </em> 
+										<div class="additionalContent showOrHide_<%= book._id %>">
+							  	    <p>Review: <%= book.review %></p>
+										</div>
+					  	    </td>
 					  	    <td> <%= book.author %> <br>
-					  	    	<div class="additionalContent" id="showOrHide_<%= book._id %>">
+					  	    	<div class="additionalContent showOrHide_<%= book._id %>">
 					  	    		<p>Publisher: <%= book.publisher %></p>
 					  	    		<p>ISBN: <%= book.isbn %></p>
 					  	    		<p>Dewey Decimal: <%= book.ddc %></p>
-							  	    <p>Review: <%= book.review %></p>
 					  	    	</div>
 						  	  </td>
 					  	    <td> <span class="label label-primary"> <%= book.rating %> </span> </td>
