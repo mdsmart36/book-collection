@@ -90,7 +90,8 @@ router.delete('/', function(req, res) {
           })
           console.log(err);
         } else {
-          //console.log("Item has been deleted.");
+          console.log("Item has been deleted.");
+          return;
           }
       });
 });
