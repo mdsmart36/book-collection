@@ -6,10 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var userProfile = require('./routes/userProfile');
 var book = require('./routes/book');
 var edit = require('./routes/edit');
 var login = require('./routes/login');
-
 
 var app = express();
 
@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', login);
 app.use('/index', index);
 app.use('/users', users);
+app.use('/userProfile', userProfile);
 app.use('/book', book);
 app.use('/create', book);
 app.use('/edit', edit);

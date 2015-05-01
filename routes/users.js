@@ -88,8 +88,6 @@ app.post("/login", function (req, res) {
 
       // Now find the books that belong to the user
 
-// ERROR SEEMS TO BE HERE --v--
-
       getUserBooks(validUser._id)
         .then(function (books) {
           // Render the book list
