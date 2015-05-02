@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  
+
   <head>
     <title><%= title %></title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  
+
   <body>
     <div class="container">
       <div class="row">
@@ -18,7 +18,7 @@
             <form class="form-horizontal" id="bookForm" method="post" action="/book">
               <input type="hidden" name="_id" value="<%= item_props._id %>">
 
-              <div class="form-group">
+              <div class="form-group" >
                 <label for="bookTitle" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="bookTitle" name="title" value="<%= item_props.title %>" minLength="2" required>
@@ -26,33 +26,49 @@
               </div>
 
               <div class="form-group">
+                <div>
                 <label for="bookAuthor" class="col-sm-2 control-label">Author</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                   <input type="text" class="form-control" id="bookAuthor" name="author" value="<%= item_props.author %>">
                 </div>
               </div>
-
-              <div class="form-group">
+              <div>
                 <label for="bookPublisher" class="col-sm-2 control-label">Publisher</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                   <input type="text" class="form-control" id="bookPublisher" name="publisher" value="<%= item_props.publisher %>">
                 </div>
               </div>
+              </div>
+              <div class="form-group">
+                <div>
+                  <label for="bookPubYear" class="col-sm-2 control-label">Year Published</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="bookPubYear" name="pubYear" value="<%= item_props.pubYear %>">
+                </div>
+              </div>
+              <div>
+                <label for="bookCategory" class="col-sm-2 control-label">Category</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="bookCategory" name="category" value="<%= item_props.category %>">
+                </div>
+              </div>
+              </div>
 
               <div class="form-group">
-                <label for="bookISBN" class="col-sm-2 control-label">ISBN</label>
-                <div class="col-sm-10">
+                <div>
+                  <label for="bookISBN" class="col-sm-2 control-label">ISBN</label>
+                <div class="col-sm-4">
                   <input type="text" class="form-control" id="bookISBN" name="isbn" value="<%=item_props.isbn %>">
                 </div>
               </div>
-
-              <div class="form-group">
+              <div>
                 <label for="bookDDC" class="col-sm-2 control-label">Dewey Decimal</label>
-                <div class="col-sm-10">
+                <div class="col-sm-4">
                   <input type="text" class="form-control" id="bookDDC" name="ddc" value="<%=item_props.ddc %>">
                 </div>
               </div>
-                            
+              </div>
+
               <div class="form-group">
                 <label for="bookRating" class="col-sm-2 control-label">Rating</label>
                 <div class="col-sm-10">
@@ -79,20 +95,7 @@
                   <textarea class="form-control" id="bookReview" name="review"><%= item_props.review %></textarea>
                 </div>
               </div>
-              
-              <div class="form-group">
-                <label for="bookPubYear" class="col-sm-2 control-label">Year Published</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="bookPubYear" name="pubYear" value="<%= item_props.pubYear %>">
-                </div>
-              </div>
 
-              <div class="form-group">
-                <label for="bookCategory" class="col-sm-2 control-label">Category</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="bookCategory" name="category" value="<%= item_props.category %>">
-                </div>
-              </div>
 
               <div class="form-group">
                 <label for="bookHaveRead" class="col-sm-2 control-label">Have read?</label>
@@ -100,23 +103,23 @@
                   <input type="checkbox" class="form-control" id="bookHaveRead" name="haveRead"  <% if (item_props.haveRead) { %> checked <% } %> >
                 </div>
               </div>
-              
-              <div class="col-sm-2">
+      
                 <input type="submit" class="btn btn-primary" id="saveButton" value="Save to Library">
                 <p></p>
+                <div
+                <a href="/users/logout"><button type="button" class="btn btn-primary btn-sm">Logout</button></a>
               </div>
 
           </form>
           <br><br><br>
- 
-          
+
+
         </div>
         <div class="col-sm-2">
           <a href="/book"><button type="button" class="btn btn-primary btn-sm">View book list</button></a>
           <p></p>
           <a href="/users/profile"><button type="button" class="btn btn-primary btn-sm">View user profile</button></a>
           <p></p>
-          <a href="/users/logout"><button type="button" class="btn btn-primary btn-sm">Logout</button></a>
         </div>
       </div>
     </div>
@@ -125,6 +128,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js"></script>
     <script type="text/javascript" src="/javascripts/validate.js"></script>
-    
+
   </body>
 </html>
