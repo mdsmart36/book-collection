@@ -5,6 +5,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -103,10 +104,10 @@
                   <input type="checkbox" class="form-control" id="bookHaveRead" name="haveRead"  <% if (item_props.haveRead) { %> checked <% } %> >
                 </div>
               </div>
-      
+
                 <input type="submit" class="btn btn-primary" id="saveButton" value="Save to Library">
                 <p></p>
-                <div
+                <div>
                 <a href="/users/logout"><button type="button" class="btn btn-primary btn-sm">Logout</button></a>
               </div>
 

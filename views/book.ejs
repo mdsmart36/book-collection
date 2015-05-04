@@ -4,20 +4,21 @@
 		<title>BookKeeper</title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 
 	<body>
-		<div class="container">
-		
+		<div class="container" name="bookpage">
+
 			<div class="row">
-				<!-- <div class="col-sm-1">		
+				<!-- <div class="col-sm-1">
 				</div> -->
 
 				<div class="col-sm-11">
 					<h1><%= greeting %></h1>
-					
+
 					<span class="label label-success">User: <%= username %></span>
-					
+
 					<table class="table table-hover">
 					  <tbody>
 					  	<tr>
@@ -30,12 +31,12 @@
 					  		<th></th> <!-- column for Edit -->
 					  		<th></th> <!-- column for Remove -->
 					  	</tr>
-					  	
+
 			      <% books.forEach(function(book){ %>
 						  	<tr class="bookItem" id="book_<%= book._id %>">
 						  		<!-- <td><input type="checkbox" id="<%= book._id %>"></td> -->
 						  		<td><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" id="<%= book._id %>"></span></td>
-					  	    <td> <em> <%= book.title %> </em> 
+					  	    <td> <em> <%= book.title %> </em>
 										<div class="additionalContent showOrHide_<%= book._id %>">
 							  	    <p>Review: <%= book.review %></p>
 										</div>
@@ -51,9 +52,9 @@
 					  	    <td> <%= book.category %> </td>
 					  	    <td><button type="button" class="btn btn-default btn-xs btn-success edit-btn" id="<%= book._id %>">Edit</button></td>
 					  	    <td><button type="button" class="btn btn-default btn-xs btn-danger remove-btn" id="<%= book._id %>">Remove</button></td>
-						  		
+
 						  	</tr>
-			      <% }) %>					
+			      <% }) %>
 					  </tbody>
 					</table>
 
@@ -66,8 +67,8 @@
 					<a href="/users/logout"><button type="button" class="btn btn-primary btn-sm">Logout</button></a>
 				</div>
 			</div>
-		</div>	
-		
+		</div>
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/javascripts/main.js"></script>
