@@ -1,5 +1,5 @@
 html {
-background: url('http://ts1.mm.bing.net/th?&id=JN.Qcpgfa7ZxIMoaN3acgvmjQ&w=300&h=300&c=0&pid=1.9&rs=0&p=0') no-repeat center center fixed;
+background: url('http://ts2.mm.bing.net/th?id=JN.WnXj5q9%2fdiUXAVV9tRsyig&w=263&h=170&c=7&rs=1&qlt=90&o=4&cb=10&pid=1.1') no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -7,7 +7,7 @@ background-size: cover;
 }
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; background-color: none;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; background-color: transparent;
 }
 
 a {
@@ -20,9 +20,4 @@ a {
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #BBB;
-}
-#UPP {font: 24px; font-family: 'Oswald' sans-serif;
-color: #FFFFFF;}
-.bookpage{
-  background-color: none;
 }
