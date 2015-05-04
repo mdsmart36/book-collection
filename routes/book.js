@@ -54,14 +54,7 @@ router.get('/', function(req, res, next) {
   var sortKey = 'title';
   var theUser = UserController.getCurrentUser();
 
-  return Book.find({user: theUser._id}).sort(sortKey).exec(function (err, books) {
-
-    // swap out the user name for user id
-    // var theUser = UserController.getCurrentUser();
-
-    // books.forEach(function(book) {
-    //   book.user = theUser._id;
-    // });
+  return Book.find({user: theUser.username}).sort(sortKey).exec(function (err, books) {
 
     if(!err) {
       res.render('book', {
@@ -117,7 +110,7 @@ router.post('/', function(req, res) {
         item.review = req.body.review;
         item.pubYear = req.body.pubYear;
         item.category = req.body.category;
-        item.user = theUser._id;
+        item.user = theUser.username;
         // CHECKBOX VALUES sent through a form ARE EITHER 'on' or 'undefined'
 
         item.haveRead = (req.body.haveRead) ? true : false;
@@ -149,7 +142,7 @@ router.post('/', function(req, res) {
       pubYear: req.body.pubYear,
       category: req.body.category,
       haveRead: (req.body.haveRead == 'on') ? true : false,
-      user: theUser._id
+      user: theUser.username
     }).save(function (err, item) {
       if(err) {
         res.render("error", {
