@@ -38,7 +38,7 @@
 						  		<td><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" id="<%= book._id %>"></span></td>
 					  	    <td> <em> <%= book.title %> </em>
 										<div class="additionalContent showOrHide_<%= book._id %>">
-							  	    <p>Review: <%= book.review %></p>
+							  	    <img src="http://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" />
 										</div>
 					  	    </td>
 					  	    <td> <%= book.author %> <br>
@@ -49,7 +49,11 @@
 					  	    	</div>
 						  	  </td>
 					  	    <td> <span class="label label-primary"> <%= book.rating %> </span> </td>
-					  	    <td> <%= book.category %> </td>
+					  	    <td> <%= book.category %> <br>
+					  	    	<div class="additionalContent showOrHide_<%= book._id %>">
+							  	    <p>Review: <%= book.review %></p>
+					  	    	</div>
+					  	    </td>
 					  	    <td><button type="button" class="btn btn-default btn-xs btn-success edit-btn" id="<%= book._id %>">Edit</button></td>
 					  	    <td><button type="button" class="btn btn-default btn-xs btn-danger remove-btn" id="<%= book._id %>">Remove</button></td>
 
