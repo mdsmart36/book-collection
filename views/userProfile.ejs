@@ -3,12 +3,14 @@
   <head>
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <title><%= username %> profile</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/userProfile.css' />
+    <!-- <link rel='stylesheet' href='/stylesheets/userProfile.css' /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body id="UPP">
-    <a href="/book">List books</a>
+    <!-- <a href="/book">List books</a> -->
+    <a href="/book"><button type="button" class="btn btn-primary btn-sm">View your books</button></a>
 
     <div>
       Username: <%= username %>
@@ -16,5 +18,7 @@
     <div>
       Number of books: <%= books.length %>
     </div>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </body>
 </html>

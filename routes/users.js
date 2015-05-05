@@ -121,7 +121,10 @@ app.post("/register", function (req, res) {
       } else {
         // username is a duplicate, so do something else
         console.log("user name is a duplicate");
-        res.redirect('/login');
+        //window.alert("User name is a duplicate; try again");
+        res.render('login', {
+          message: "User name is a duplicate; try again."
+        });
       }
     }
   });
