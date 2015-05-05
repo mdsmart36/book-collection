@@ -50,7 +50,7 @@ router.get('/', function(req, res, next) {
     res.redirect("/");
   }
 
-  // return all matching documents sorted is ascending order by priority
+  // return all matching documents sorted is ascending order by title
   var sortKey = 'title';
   var theUser = UserController.getCurrentUser();
 
@@ -69,7 +69,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.delete('/', function(req, res) {
-  //console.log(req.body);
 
   Book.find({ _id: req.body.book_id })
       .remove(function (err, item) {
@@ -159,10 +158,7 @@ router.post('/', function(req, res) {
         res.redirect('book');
       }
     });
-
   }
-
-
 });
 
 module.exports = router;

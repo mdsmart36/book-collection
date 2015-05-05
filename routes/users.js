@@ -77,15 +77,7 @@ app.post("/register", function (req, res) {
 
         setTimeout(function() { // SET TIMEOUT START
 
-
-// **************************************
-// REMOVE THIS LINE WHEN YOU GET THE LOGIN FUNCTION WORKING
-        //res.redirect('/login');
-//*****************************************
-
         // login user
-
-        // *************  PROBLEM IS HERE, PROBLEM WITH PROMISES AND LOGGING USER IN
 
           UserController.login(req.body.username, req.body.password)
 
@@ -129,83 +121,6 @@ app.post("/register", function (req, res) {
     }
   });
 });
-
-
-// Handle the registration form post
-// app.post("/register", function (req, res) {
-//   UserModel.findOne({ username: req.body.username }, function (err, item) {
-//     if (err) {
-//       console.log(err);
-//       console.log("User already exists; going back to login page.");
-//       res.redirect('/login');
-//     }
-//     else {
-//       console.log(item);
-//       // if no user found (item === null), then save new user, go to index page
-//       // else (user already exists in database) notify user, try again or go back to login
-//       if (item === null) {
-//         var newUser = new UserModel(req.body);
-//         newUser.save(function (err, user) {
-//           if (err) {
-//             sendError(req, res, err, "Failed to register user");
-//           } else {
-//             console.log("New user saved to database");
-
-//             // *** login the user ***
-//             // ************************************
-
-//             UserController.login(req.body.username, req.body.password)
-
-//               // After the database call is complete and successful,
-//               // the promise returns the user object
-//               .then(function (validUser) {
-
-//                 console.log('Ok, now we are back in the route handling code and have found a user');
-//                 console.log('validUser',validUser);
-//                 console.log('Find any books that are assigned to the user');
-
-//                 // Now find the books that belong to the user
-
-//                 getUserBooks(validUser.username)
-//                   .then(function (books) {
-//                     // Render the book list
-//                     // res.redirect("/todo/list");
-//                     res.redirect("book");
-//                   })
-//                   .fail(function (err) {
-//                     sendError(req, res, {errors: err.message}, "Failed")
-//                   });
-//               })
-
-//               // After the database call is complete but failed
-//               .fail(function (err) {
-//                 console.log('Failed looking up the user');
-//                 sendError(req, res, {errors: err.message}, "Failed")
-//               })
-
-//             // ************************************
-
-//             // render index page with new user
-//             res.render('index', {
-//               title: "Add a Book to Your Book Collection",
-//               username: UserController.getCurrentUser().username,
-//               item_props: {}
-//               });
-//             }
-
-
-
-
-//         });
-//       } else {
-//         // notify user that info already exists
-//         // register with different user name or go to login page
-//         console.log("User already exists; going back to login page.");
-//         res.redirect('/login');
-//       }
-//     }
-//   });
-// });
 
 
 // Handle the login action

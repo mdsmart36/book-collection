@@ -1,4 +1,3 @@
-
 var mongoose = require('mongoose');
 var bookSchema = mongoose.Schema({
   title: {

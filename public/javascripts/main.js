@@ -28,7 +28,6 @@ $(document).ready(function() {
         console.log("returned from ajax DELETE");
       }
     });
-
   });
 
   // handler for clicking the Edit button
@@ -37,6 +36,4 @@ $(document).ready(function() {
     window.location.href = '/book/' + item_id;
   });
 
-
-
-  });
+});
