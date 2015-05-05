@@ -72,11 +72,11 @@ app.post("/register", function (req, res) {
             sendError(req, res, err, "Failed to register user");
           } else {
             console.log("New user registered and saved to database");
-          }                   
+          }
         });
 
         setTimeout(function() { // SET TIMEOUT START
-          
+
 
 // **************************************
 // REMOVE THIS LINE WHEN YOU GET THE LOGIN FUNCTION WORKING
@@ -150,7 +150,7 @@ app.post("/register", function (req, res) {
 //             sendError(req, res, err, "Failed to register user");
 //           } else {
 //             console.log("New user saved to database");
-            
+
 //             // *** login the user ***
 //             // ************************************
 
@@ -202,7 +202,7 @@ app.post("/register", function (req, res) {
 //         // register with different user name or go to login page
 //         console.log("User already exists; going back to login page.");
 //         res.redirect('/login');
-//       } 
+//       }
 //     }
 //   });
 // });

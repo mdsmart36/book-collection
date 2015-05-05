@@ -21,3 +21,11 @@ a {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #BBB;
 }
+#UPP {font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #003300;
+}
+#uname, #ubook {
+  text-align: center;
+}

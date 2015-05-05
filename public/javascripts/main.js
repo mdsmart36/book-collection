@@ -7,9 +7,9 @@ $(document).ready(function() {
     $('.showOrHide_' + item_id).toggle();
     if ($(this).hasClass("glyphicon-plus-sign")) {
       $(this).removeClass("glyphicon-plus-sign").addClass("glyphicon-minus-sign");
-    } 
+    }
     else {
-      $(this).removeClass("glyphicon-minus-sign").addClass("glyphicon-plus-sign");      
+      $(this).removeClass("glyphicon-minus-sign").addClass("glyphicon-plus-sign");
     }
   });
 
@@ -37,8 +37,6 @@ $(document).ready(function() {
     window.location.href = '/book/' + item_id;
   });
 
-  
+
 
   });
-
-
