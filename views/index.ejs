@@ -10,11 +10,19 @@
 
   <body>
     <div class="container" id="indexpg">
+
+      <ul class="nav nav-pills navbar-right">
+        <li role="presentation" class="active"><a href="#">Add Books</a></li>
+        <li role="presentation"><a href="/book">List Your Books</a></li>
+        <li role="presentation"><a href="/users/profile">Your Profile</a></li>
+        <li role="presentation"><a href="/users/logout">Logout</a></li>
+      </ul>
+
       <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-8">
           <h3><%= title %></h3>
-          <span class="label label-success">User: <%= username %></span>
+          <span class="label label-success pull-right"><%= username %></span>
 
             <form class="form-horizontal" id="bookForm" method="post" action="/book">
               <input type="hidden" name="_id" value="<%= item_props._id %>">
@@ -107,21 +115,21 @@
 
                 <input type="submit" class="btn btn-primary" id="saveButton" value="Save to Library">
                 <p></p>
-                <div>
+                <!-- <div>
                 <a href="/users/logout"><button type="button" class="btn btn-primary btn-sm">Logout</button></a>
-              </div>
+              </div> -->
 
           </form>
           <br><br><br>
-
-
         </div>
+
         <div class="col-sm-2">
-          <a href="/book"><button type="button" class="btn btn-primary btn-sm">View book list</button></a>
+          <!-- <a href="/book"><button type="button" class="btn btn-primary btn-sm">View book list</button></a>
           <p></p>
           <a href="/users/profile"><button type="button" class="btn btn-primary btn-sm">View user profile</button></a>
-          <p></p>
+          <p></p> -->
         </div>
+
       </div>
     </div>
 

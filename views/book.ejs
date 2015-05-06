@@ -8,14 +8,23 @@
 	</head>
 
 	<body>
+					
 		<div class="container" id="BP">
+
+			<ul class="nav nav-pills navbar-right">
+			  <li role="presentation"><a href="/index">Add Books</a></li>
+			  <li role="presentation" class="active"><a href="#">List Your Books</a></li>
+			  <li role="presentation"><a href="/users/profile">Your Profile</a></li>
+			  <li role="presentation"><a href="/users/logout">Logout</a></li>
+			</ul>
+
 
 			<div class="row">
 
 				<div class="col-sm-11">
 					<h1><%= greeting %></h1>
 
-					<span class="label label-success">User: <%= username %></span>
+					<span class="label label-success pull-right"><%= username %></span>
 
 					<table class="table table-hover">
 					  <tbody>
@@ -61,11 +70,11 @@
 				</div>
 
 				<div class="col-sm-1">
-					<a href="/index"><button type="button" class="btn btn-primary btn-sm">Add more items</button></a>
+					<!-- <a href="/index"><button type="button" class="btn btn-primary btn-sm">Add more items</button></a>
 					<p></p>
 					<a href="/users/profile"><button type="button" class="btn btn-primary btn-sm">View user profile</button></a>
 					<p></p>
-					<a href="/users/logout"><button type="button" class="btn btn-primary btn-sm">Logout</button></a>
+					<a href="/users/logout"><button type="button" class="btn btn-primary btn-sm">Logout</button></a> -->
 				</div>
 			</div>
 		</div>

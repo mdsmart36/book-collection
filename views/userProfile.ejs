@@ -10,7 +10,14 @@
   </head>
   <body id="UPP" >
 
-    <a href="/book"><button type="button" class="btn btn-primary btn-sm">View your books</button></a>
+    <ul class="nav nav-pills navbar-right">
+      <li role="presentation"><a href="/index">Add Books</a></li>
+      <li role="presentation"><a href="/book">List Your Books</a></li>
+      <li role="presentation" class="active"><a href="/users/profile">Your Profile</a></li>
+      <li role="presentation"><a href="/users/logout">Logout</a></li>
+    </ul>
+
+    <!-- <a href="/book"><button type="button" class="btn btn-primary btn-sm">View your books</button></a> -->
     <div id="uname">
       Username: <%= username %>
     </div>
