@@ -15,6 +15,7 @@
 			  <li role="presentation"><a href="/index">Add Books</a></li>
 			  <li role="presentation" class="active"><a href="#">List Your Books</a></li>
 			  <li role="presentation"><a href="/users/profile">Your Profile</a></li>
+			  <li role="presentation"><a href="#" data-toggle="modal" data-target="#myModal">Help</a></li>
 			  <li role="presentation"><a href="/users/logout">Logout</a></li>
 			</ul>
 
@@ -71,6 +72,36 @@
 				<div class="col-sm-1">
 				</div>
 			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Your Book Listing</h4>
+		      </div>
+		      <div class="modal-body">
+		      	<ul>
+		      		<li>
+				        <p>Sort your listing by clicking on the column header: Title, Author, Rating, Category</p>
+		      		</li>
+		      		<li>
+				        <p>Expand or shrink the contents of each row by clicking <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> or <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></p>
+		      		</li>
+		      		<li>
+				        <p><button type="button" class="btn btn-default btn-xs btn-success">Edit</button> the contents of your book listing</p>
+		      		</li>
+		      		<li>
+				        <p><button type="button" class="btn btn-default btn-xs btn-danger">Remove</button> your book from the database. Careful, this cannot be undone.</p>
+		      		</li>
+		      	</ul>
+		      </div>
+		      <div class="modal-footer">
+		      </div>
+		    </div>
+		  </div>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -52,8 +52,6 @@ router.get('/', function(req, res, next) {
 
   // return all matching documents sorted is ascending order by title
   var sortKey = req.query.sort;
-  //console.log(req.query);
-  //sortKey = req.query.sort;
   var theUser = UserController.getCurrentUser();
 
   return Book.find({user: theUser.username}).sort(sortKey).exec(function (err, books) {

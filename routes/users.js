@@ -27,7 +27,6 @@ var getUserBooks = function (userId) {
     //console.log(err,books);
     if (!err) {
       console.log('Books found = ' + books.length);
-      //userNumberOfBooks = books.length;
       console.log('No errors when looking up books. Resolve the promise (even if none were found).');
       deferred.resolve(books);
     } else {
@@ -49,7 +48,7 @@ app.get("/register", function (req, res) {
 app.get("/book", function (req, res) {
   console.log("inside /user/register");
   res.render("index",{
-    title: "Add a Book to your collection",
+    title: "Add a Book to Your Collection",
     username: UserController.getCurrentUser().username,
     item_props:{}
   });
@@ -60,8 +59,6 @@ app.post("/register", function (req, res) {
   UserModel.findOne({username: req.body.username}, function(err, item) {
     if (err) {
       console.log(err);
-      //console.log("User already exists; going back to login page.");
-      //res.redirect('/login');
     } else {
       console.log("looked in user database; returned", item);
       if (item === null) {
@@ -94,7 +91,6 @@ app.post("/register", function (req, res) {
               getUserBooks(validUser._id)
                 .then(function (books) {
                   // Render the book list
-                  // res.redirect("/todo/list");
                   res.redirect("book");
                 })
                 .fail(function (err) {
