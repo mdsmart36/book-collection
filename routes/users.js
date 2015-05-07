@@ -113,9 +113,8 @@ app.post("/register", function (req, res) {
       } else {
         // username is a duplicate, so do something else
         console.log("user name is a duplicate");
-        //window.alert("User name is a duplicate; try again");
         res.render('login', {
-          message: "User name is a duplicate; try again."
+          message: "User name is currently in use. Please login or try again."
         });
       }
     }
@@ -156,7 +155,7 @@ app.post("/login", function (req, res) {
       console.log('Failed looking up the user');
       // sendError(req, res, {errors: err.message}, "Failed")
       res.render('login', {
-         message: "Unable to locate username. Please Register."
+         message: "Unable to locate username. Please Register or try again."
        });
     })
 });

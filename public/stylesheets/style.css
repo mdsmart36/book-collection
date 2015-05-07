@@ -1,20 +1,23 @@
 html {
-/*background: url('http://ts2.mm.bing.net/th?id=JN.WnXj5q9%2fdiUXAVV9tRsyig&w=263&h=170&c=7&rs=1&qlt=90&o=4&cb=10&pid=1.1') no-repeat center center fixed;*/
-background: url('/images/open_book_green_background_1157228291.jpg') no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+	background: url('/images/open_book_green_background_1157228291.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; background-color: transparent; color: #003300
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  background-color: transparent; 
+  color: #003300
 }
 
 a {
   color: black;
 }
 
+/* content initially hidden on the book listing page */
 .additionalContent {
 	display: none;
 }
@@ -23,8 +26,10 @@ a {
   background-color: #BBB;
 }
 
+/* font and color for text on user profile page */
 #uname, #ubook {
 	font-family: 'Oswald', sans-serif;
   font-size: 24px;
   font-weight: bold;
   color: #003300;
+}
