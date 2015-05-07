@@ -154,7 +154,10 @@ app.post("/login", function (req, res) {
     // After the database call is complete but failed
     .fail(function (err) {
       console.log('Failed looking up the user');
-      sendError(req, res, {errors: err.message}, "Failed")
+      // sendError(req, res, {errors: err.message}, "Failed")
+      res.render('login', {
+         message: "Unable to locate username. Please Register."
+       });
     })
 });
 

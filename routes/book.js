@@ -58,7 +58,7 @@ router.get('/', function(req, res, next) {
 
     if(!err) {
       res.render('book', {
-        greeting: "Your current Book Collection",
+        greeting: "Your Current Book Collection",
         username: UserController.getCurrentUser().username,
         books: books
       });
