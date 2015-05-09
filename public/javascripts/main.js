@@ -36,4 +36,24 @@ $(document).ready(function() {
     window.location.href = '/book/' + item_id;
   });
 
+  function getISBNData(isbn) {
+
+    $.ajax({
+      url: "http://isbndb.com/api/v2/json/N8XBT6EZ/book/" + isbn,
+      dataType: "json",
+      success: function(data) {
+        console.log("success getting ISBN data");
+        console.log(data.data[0].title);
+        
+      }
+    });
+
+   }
+
+  // ISBN button click listener
+  $('#isbnButton').on('click', function() {
+    var isbn = $('#bookISBN').val();
+    getISBNData(isbn);
+  });
+
 });
