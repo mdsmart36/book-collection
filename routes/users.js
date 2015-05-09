@@ -151,7 +151,7 @@ app.post("/login", function (req, res) {
       console.log('Failed looking up the user');
       // sendError(req, res, {errors: err.message}, "Failed")
       res.render('login', {
-         message: "Unable to locate username. Please Register or try again."
+         message: "Unable to locate username or password. Please Register or try again."
        });
     })
 });
