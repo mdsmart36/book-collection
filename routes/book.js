@@ -4,11 +4,11 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Book = require('../models/book');
 
-//mongoose.connect('mongodb://localhost/bookCollection');
+mongoose.connect('mongodb://localhost/bookCollection');
 
 // TO RUN THE APP LOCALLY
 // DB=mongodb://localhost/bookCollection node bin/www
-mongoose.connect(process.env.DB);
+//mongoose.connect(process.env.DB);
 
 var db = mongoose.connection;
 

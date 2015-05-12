@@ -43,8 +43,14 @@ $(document).ready(function() {
       dataType: "json",
       success: function(data) {
         console.log("success getting ISBN data");
-        console.log(data.data[0].title);
-        
+        var bookData = data.data[0];
+        //console.log(bookData);
+
+        $('#bookTitle').val(bookData.title);
+        $('#bookAuthor').val(bookData.author_data[0].name);
+        $('#bookPublisher').val(bookData.publisher_name);
+        $('#bookDDC').val(bookData.dewey_decimal);
+
       }
     });
 
